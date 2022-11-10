@@ -8,11 +8,16 @@ class Car
 public:
 
 	Car();
-	Car(std::string newName, Driver* newOwner);
+	Car(std::string newName, Driver* newDriver, Driver* newAiDriver);
+
+	~Car();
 
 	void PrintCar();
+	void TransferOwnership(Driver* newDriver);
+	void GenerateSelfDrivingAi();
 
 	std::string name;
-	Driver* owner;
+	Driver* driver;
+	Driver* aiDriver;
 };
 

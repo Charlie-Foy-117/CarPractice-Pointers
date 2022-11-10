@@ -14,11 +14,25 @@ int main()
 
     driverPtr = &driver1;
 
-    Car car1("Car", driverPtr);
+    Car car1("Car", driverPtr, nullptr);
     
     driverPtr->currentCar = &car1;
 
     driver1.PrintDriverAndCar();
+    car1.PrintCar();
+
+
+
+    Driver driver2("Michael", carPtr);
+
+    
+    car1.TransferOwnership(&driver2);
+    car1.PrintCar();
+    driver1.PrintDriverAndCar();
+    driver2.PrintDriverAndCar();
+
+    car1.PrintCar();
+    car1.GenerateSelfDrivingAi();
     car1.PrintCar();
 }
 

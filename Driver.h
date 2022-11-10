@@ -9,6 +9,8 @@ public:
 	Driver();
 	Driver(std::string newName, Car* newCurrentCar);
 
+	~Driver();
+
 	void PrintDriver();
 	void PrintDriverAndCar();
 
