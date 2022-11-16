@@ -14,26 +14,19 @@ int main()
 
     driverPtr = &driver1;
 
-    Car car1("Car", driverPtr, nullptr);
+    Car car1("Car", driverPtr, nullptr, 0);
     
-    driverPtr->currentCar = &car1;
-
-    driver1.PrintDriverAndCar();
-    car1.PrintCar();
+    driverPtr->SetCurrentCar(&car1);
 
 
-
-    Driver driver2("Michael", carPtr);
-
+    std::cout << "Petrol level of car: " << car1.GetPetrolLevel() << std::endl;
+    car1.SetPetrolLevel(10);
+    std::cout << "Petrol level of car: " << car1.GetPetrolLevel() << std::endl;
+    car1.SetPetrolLevel(-11);
+    std::cout << "Petrol level of car: " << car1.GetPetrolLevel() << std::endl;
+    car1.SetPetrolLevel(100);
+    std::cout << "Petrol level of car: " << car1.GetPetrolLevel() << std::endl;
     
-    car1.TransferOwnership(&driver2);
-    car1.PrintCar();
-    driver1.PrintDriverAndCar();
-    driver2.PrintDriverAndCar();
-
-    car1.PrintCar();
-    car1.GenerateSelfDrivingAi();
-    car1.PrintCar();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

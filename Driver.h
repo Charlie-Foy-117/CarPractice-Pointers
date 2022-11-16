@@ -14,6 +14,14 @@ public:
 	void PrintDriver();
 	void PrintDriverAndCar();
 
+	Car* GetCurrentCar();
+	void SetCurrentCar(Car* newCurrentCar);
+
+	std::string GetDriverName();
+
+
+private:
+
 	std::string name;
 
 	Car* currentCar;

@@ -8,7 +8,7 @@ class Car
 public:
 
 	Car();
-	Car(std::string newName, Driver* newDriver, Driver* newAiDriver);
+	Car(std::string newName, Driver* newDriver, Driver* newAiDriver, float newPetrolLevel);
 
 	~Car();
 
@@ -16,6 +16,16 @@ public:
 	void TransferOwnership(Driver* newDriver);
 	void GenerateSelfDrivingAi();
 
+	std::string GetCarName();
+
+	std::string GetAiName();
+
+	float GetPetrolLevel();
+	void SetPetrolLevel(float newPetrolLevel);
+
+private:
+
+	float petrolLevel;
 	std::string name;
 	Driver* driver;
 	Driver* aiDriver;
