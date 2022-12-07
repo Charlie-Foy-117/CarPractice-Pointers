@@ -1,29 +1,31 @@
 #pragma once
 #include <string>
 #include "Car.h"
+class Vehicle;
 class Driver
 {
 public:
 
 	//constructor
 	Driver();
-	Driver(std::string newName, Car* newCurrentCar);
+	Driver(std::string newName, Vehicle* newCurrentVehicle);
 
-	~Driver();
+	virtual ~Driver();
 
 	void PrintDriver();
 	void PrintDriverAndCar();
 
-	Car* GetCurrentCar();
-	void SetCurrentCar(Car* newCurrentCar);
+	void RegisterVehicle(Vehicle* newVehicle);
 
 	std::string GetDriverName();
+	Vehicle* GetCurrentVehicle();
 
 
-private:
+
+protected:
 
 	std::string name;
 
-	Car* currentCar;
+	Vehicle* currentVehicle;
 };
 

@@ -4,9 +4,12 @@
 #include <iostream>
 #include "Driver.h"
 #include "Car.h"
+#include "Truck.h"
+#include "Motorbike.h"
 
 int main()
 {
+    /*
     Car* carPtr = nullptr;
     Driver* driverPtr = nullptr;
     
@@ -26,7 +29,15 @@ int main()
     std::cout << "Petrol level of car: " << car1.GetPetrolLevel() << std::endl;
     car1.SetPetrolLevel(100);
     std::cout << "Petrol level of car: " << car1.GetPetrolLevel() << std::endl;
+    */
     
+    Car car1("Car", nullptr, nullptr, 100, 300, 4);
+    Truck truck1("Truck", nullptr, nullptr, 500, 1000, 8, "Dirt");
+    Motorbike motorbike1("Motorbike", nullptr, nullptr, 50, 60, 2);
+
+    Driver driver1("Bob", nullptr);
+    driver1.RegisterVehicle(&motorbike1);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

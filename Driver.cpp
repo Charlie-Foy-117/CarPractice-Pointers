@@ -1,16 +1,20 @@
 #include <iostream>
 #include "Driver.h"
+#include "Vehicle.h"
+#include "Car.h"
+#include "Truck.h"
+#include "Motorbike.h"
 
 Driver::Driver()
 	:name("")
-	,currentCar(nullptr)
+	,currentVehicle(nullptr)
 {
 	std::cout << "Driver constructed: " << GetDriverName() << std::endl;
 }
 
-Driver::Driver(std::string newName, Car* newCurrentCar)
+Driver::Driver(std::string newName, Vehicle* newCurrentVehicle)
 	:name(newName)
-	,currentCar(newCurrentCar)
+	,currentVehicle(newCurrentVehicle)
 {
 	std::cout << "Driver constructed with parameters: " << GetDriverName() << std::endl;
 }
@@ -28,9 +32,9 @@ void Driver::PrintDriver()
 
 void Driver::PrintDriverAndCar()
 {
-	if (currentCar != nullptr)
+	if (currentVehicle != nullptr)
 	{
-		std::cout << "The driver is: " << GetDriverName() << " and the Car is: " << currentCar->GetCarName() << std::endl;
+		std::cout << "The driver is: " << GetDriverName() << " and the Vehicle is: " << currentVehicle->GetVehicleName() << std::endl;
 	}
 	else
 	{
@@ -38,17 +42,33 @@ void Driver::PrintDriverAndCar()
 	}
 }
 
-Car* Driver::GetCurrentCar()
+void Driver::RegisterVehicle(Vehicle* newVehicle)
 {
-	return currentCar;
-}
-
-void Driver::SetCurrentCar(Car* newCurrentCar)
-{
-	currentCar = newCurrentCar;
+	currentVehicle = newVehicle;
+	Car* car1 = dynamic_cast<Car*>(currentVehicle);
+	Motorbike* motorbike1 = dynamic_cast<Motorbike*>(currentVehicle);
+	Truck* truck1 = dynamic_cast<Truck*>(currentVehicle);
+	
+	if (car1 != nullptr)
+	{
+		car1->Print();
+	}
+	if (truck1 != nullptr)
+	{
+		truck1->Print();
+	}
+	if (motorbike1 != nullptr)
+	{
+		motorbike1->Print();
+	}
 }
 
 std::string Driver::GetDriverName()
 {
 	return name;
+}
+
+Vehicle* Driver::GetCurrentVehicle()
+{
+	return currentVehicle;
 }
